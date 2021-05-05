@@ -7,6 +7,6 @@
 * 앱 연동
   * [디바이스 정보 조회](function/device/info.md)
 * 보안
-  * [대칭키 암호화](function/device/info.md) 
+  * [대칭키 암호화](function/crypto.md) 
     
 

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>소개 · GitBook</title>
+        <title>대칭키 암호화 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -12,20 +12,20 @@
         
         
     
-    <link rel="stylesheet" href="gitbook/style.css">
+    <link rel="stylesheet" href="../gitbook/style.css">
 
     
             
                 
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
                 
             
                 
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
         
@@ -53,8 +53,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
     
@@ -87,9 +87,9 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="../">
             
-                <a href="./">
+                <a href="../">
             
                     
                     소개
@@ -121,9 +121,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="2.1.1" data-path="function/device/info.html">
+        <li class="chapter " data-level="2.1.1" data-path="device/info.html">
             
-                <a href="function/device/info.html">
+                <a href="device/info.html">
             
                     
                     디바이스 정보 조회
@@ -153,9 +153,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="2.2.1" data-path="function/crypto.html">
+        <li class="chapter active" data-level="2.2.1" data-path="crypto.html">
             
-                <a href="function/crypto.html">
+                <a href="crypto.html">
             
                     
                     대칭키 암호화
@@ -201,7 +201,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >소개</a>
+        <a href=".." >대칭키 암호화</a>
     </h1>
 </div>
 
@@ -216,9 +216,22 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#xD478;&#xC2DC;&#xC571;-api">&#xD478;&#xC2DC;&#xC571; API</h1>
-<p>&#xD478;&#xC2DC;&#xC571;&#xC758; &#xB2E4;&#xC591;&#xD55C; &#xAE30;&#xB2A5;&#xC5D0; &#xB300;&#xD574; &#xBA85;&#xC138;&#xD569;&#xB2C8;&#xB2E4;.</p>
-
+                                <h1 id="1-&#xB300;&#xCE6D;&#xD0A4;-&#xC554;&#xD638;&#xD654;">1. &#xB300;&#xCE6D;&#xD0A4; &#xC554;&#xD638;&#xD654;</h1>
+<p>&#xB300;&#xCE6D;&#xD0A4; &#xC554;&#xD638;&#xD654;&#xB294; <code>AES/CBC/PKCS5Padding</code> &#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. </p>
+<h2 id="&#xC120;&#xD589;">&#xC120;&#xD589;</h2>
+<ul>
+<li>key &#xC815;&#xBCF4;&#xB97C; &#xBBF8;&#xB9AC; &#xC694;&#xCCAD;&#xD574;&#xC8FC;&#xC154;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;.</li>
+</ul>
+<h2 id="php">PHP</h2>
+<h3 id="&#xC554;&#xD638;&#xD654;">&#xC554;&#xD638;&#xD654;</h3>
+<pre><code>function AESEncrypt($str, $key){
+    return base64_encode(openssl_encrypt($str, &quot;AES-256-CBC&quot;, $key, true, str_repeat(chr(0), 16)));
+}
+</code></pre><h3 id="&#xBCF5;&#xD638;&#xD654;">&#xBCF5;&#xD638;&#xD654;</h3>
+<pre><code>function AESDecrypt($str, $key){
+    return openssl_decrypt(base64_decode($str), &quot;AES-256-CBC&quot;, $key, true, str_repeat(chr(0), 16));
+}
+</code></pre>
                                 
                                 </section>
                             
@@ -253,37 +266,37 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"소개","level":"1.1","depth":1,"next":{"title":"앱 연동","level":"2.1","depth":1,"ref":"","articles":[{"title":"디바이스 정보 조회","level":"2.1.1","depth":2,"path":"function/device/info.md","ref":"function/device/info.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":10,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"README.md","mtime":"2021-05-05T15:23:55.966Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-05T18:18:07.981Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"대칭키 암호화","level":"2.2.1","depth":2,"previous":{"title":"보안","level":"2.2","depth":1,"ref":"","articles":[{"title":"대칭키 암호화","level":"2.2.1","depth":2,"path":"function/crypto.md","ref":"function/crypto.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":10,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"function/crypto.md","mtime":"2021-05-05T17:49:28.899Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-05T18:18:07.981Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
 
         
-    <script src="gitbook/gitbook.js"></script>
-    <script src="gitbook/theme.js"></script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
     
         
-        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
         
     
         
-        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
         
     
         
-        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
         
     
         
-        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
         
     
         
-        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
         
     
 
